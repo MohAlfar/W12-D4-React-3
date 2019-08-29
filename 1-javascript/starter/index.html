@@ -16,6 +16,17 @@
     // Create a post object with an id and title that is frozen
     // Test whether you can reassign each of the variables
     // Log out each of the variables to the page
+       const username1 = "mohammad"
+       let obj= {
+       username : "mohammad",
+       loggedIn : "hi"
+    }
+
+     Object.freeze(obj); 
+      obj.username = "khaled";
+
+
+    console.log( obj.username)
 
 
 
@@ -24,10 +35,10 @@
     // Create a variable called message that can be reassigned
     // Use a template literal to create message like "Hi firstName lastName!"
     // Log out the message to the console
-    const firstName = "";
-    const lastName = ""
+    const firstName = "moh";
+    const lastName = "alfar"
 
-    let message = ``;
+    let message = `hi ${firstName} ${lastName}`;
 
     console.log(message);
 
@@ -44,6 +55,9 @@
     }
 
 
+     MyName = (name) => {  `<p>${name}<p>` }
+     
+      
 
     // Practice 4 - .filter() and .map()
     // Filter the array of posts into a filteredPost variable
@@ -65,6 +79,23 @@
       }
     ];
 
+   let fil = posts.filter((pos)=> {
+
+    return pos.title.includes("post")
+
+    }).map((pos)=> 
+
+pos.title
+)
+    console.log(fil);
+
+
+//     let fil2 = posts.map((pos)=> 
+
+//  pos.title.includes("post")
+
+// )
+// console.log(fil2);
 
 
     // Practice 5 - DOM Creation
@@ -90,6 +121,18 @@
         title: "Last one"
       }
     ];
+
+    postsArray.map(obj => {
+      const h2 = document.createElement('h2');
+      const a = document.createElement('a');
+      const title = document.createTextNode(obj.title);
+      const link = obj.slug;
+      a.href = link;
+      a.append(title);
+      h2.appendChild(a);
+      postsContainer.appendChild(h2);
+    });
+   
 
 
   </script>
